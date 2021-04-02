@@ -1,0 +1,6 @@
+*.iml
+.idea/
+depe
+target/
+outputs/
+static/

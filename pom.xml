@@ -120,6 +120,7 @@
 					</args>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -141,6 +142,41 @@
 					</arguments>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.netflix.errordetection.ErrorRateDetectionJob</mainClass>
+								</transformer>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>reference.conf</resource>
+								</transformer>
+							</transformers>
+							<relocations>
+								<relocation>
+									<pattern>org.codehaus.plexus.util</pattern>
+									<shadedPattern>org.shaded.plexus.util</shadedPattern>
+									<excludes>
+										<exclude>org.codehaus.plexus.util.xml.Xpp3Dom</exclude>
+										<exclude>org.codehaus.plexus.util.xml.pull.*</exclude>
+									</excludes>
+								</relocation>
+							</relocations>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

@@ -45,8 +45,8 @@ OR
 This command will:
 * Compile and run the flink job
 * Copy output data to the `static/` directory
-* Start a webserver on port 8000 to view the results 
-  
+* Start a webserver on port 8000 to view the results
+
 Alternatively, you can use docker:
 
 ```
@@ -54,3 +54,11 @@ docker build . -t netflix
 docker run --rm -it -p8000:8000 netflix inputs/ErrorStreamSetA.csv
 ```
 
+## Releases
+
+A fat jar is provided as github release, untar the release and run:
+
+```
+tar -xzvf errordetector.tgz
+java -jar target/errordetection-1.0-SNAPSHOT.jar ./inputs/ErrorStreamSetA.csv
+```

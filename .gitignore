@@ -4,3 +4,4 @@ depe
 target/
 outputs/
 static/
+dependency-reduced-pom.xml

@@ -56,9 +56,9 @@ docker run --rm -it -p8000:8000 netflix inputs/ErrorStreamSetA.csv
 
 ## Releases
 
-A fat jar is provided as github release, untar the release and run:
+A fat jar is provided as a github release:
 
 ```
-tar -xzvf errordetector.tgz
-java -jar target/errordetection-1.0-SNAPSHOT.jar ./inputs/ErrorStreamSetA.csv
+curl -L https://github.com/chrismcbride/errordetection/releases/download/v0.1/errordetector.tgz | tar -xzv --
+java -jar target/errordetection-1.0-SNAPSHOT.jar ~/path/to/SampleData.csv
 ```

@@ -40,7 +40,7 @@ OR
 
 ## Running Locally
 
-`./run.sh inputs/ErrorStreamSetA.csv`
+`./bin/run.sh inputs/ErrorStreamSetA.csv`
 
 This command will:
 * Compile and run the flink job

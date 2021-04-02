@@ -9,4 +9,4 @@ COPY . .
 RUN mvn compile
 EXPOSE 8000/tcp
 
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["./bin/run.sh"]
